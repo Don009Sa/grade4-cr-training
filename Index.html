@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 4 Coding & Robotics Training 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .hero-section {
+            background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .hero-section h2 {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+            margin-bottom: 20px;
+        }
+
+        .workshop-dates {
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        /* Welcome Section */
+        .welcome-message {
+            background: white;
+            padding: 50px 0;
+        }
+
+        .welcome-message h3 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .welcome-message p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .course-designers {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 4px solid #34a853;
+        }
+
+        /* Current Phase Section */
+        .current-phase {
+            background: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .phase-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #1a73e8;
+        }
+
+        .phase-content h3 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .checklist ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            padding: 8px 0;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            background: #1a73e8;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #1557b0;
+        }
+
+        /* Course Purpose */
+        .course-purpose {
+            background: white;
+            padding: 50px 0;
+        }
+
+        .course-purpose h3 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .course-purpose ul {
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        .course-purpose li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        blockquote {
+            background: #e8f5e8;
+            padding: 20px;
+            border-left: 4px solid #34a853;
+            margin: 30px 0;
+            font-style: italic;
+            border-radius: 5px;
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-weight: 600;
+            color: #34a853;
+        }
+
+        /* Learning Outcomes */
+        .learning-outcomes {
+            background: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .learning-outcomes h3 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .outcome-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid #1a73e8;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .outcome-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .outcome-card h4 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Quick Start */
+        .quick-start {
+            background: white;
+            padding: 50px 0;
+        }
+
+        .quick-start h3 {
+            color: #1a73e8;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .quick-link {
+            background: white;
+            padding: 25px;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+
+        .quick-link:hover {
+            transform: translateY(-3px);
+            border-color: #1a73e8;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        .quick-link h4 {
+            color: #1a73e8;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 40px 0;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section h2 {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+
+            .phase-content {
+                padding: 25px;
+            }
+
+            .welcome-message, .course-purpose, .learning-outcomes, .quick-start {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+
+            .phase-content {
+                padding: 20px;
+            }
+
+            .outcome-card, .quick-link {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <div class="container">
+            <h1>Welcome to Grade 4 Coding & Robotics Training!</h1>
+            <h2>Building Confident C&R Teachers, One Step at a Time</h2>
+            <p class="workshop-dates">Workshop: 6-9 October 2025</p>
+        </div>
+    </header>
+
+    <!-- Welcome Message -->
+    <section class="welcome-message">
+        <div class="container">
+            <h3>Dear Grade 4 Teachers,</h3>
+            
+            <p>We're excited to welcome you to this transformative 4-day Coding & Robotics training journey. You're taking a bold step into the future of education, and we're here to support you every step of the way.</p>
+            
+            <p>This isn't just a course - it's the beginning of your <strong>Community of Practice</strong>. Over the next weeks, we'll work together as a group that shares a common goal: bringing the joy and power of coding and robotics to our Grade 4 learners.</p>
+            
+            <p><strong>You belong here.</strong> Whether you've never touched code before or you're nervous about robots, we believe in your ability to become a confident C&R educator.</p>
+            
+            <div class="course-designers">
+                <p><em>With support and encouragement,<br>
+                The WCED Coding & Robotics Team</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Phase Indicator -->
+    <section class="current-phase">
+        <div class="container">
+            <!-- PRE-WORKSHOP VERSION -->
+            <div class="phase-content" id="pre-workshop">
+                <h3>📚 Pre-Workshop Phase</h3>
+                <p><strong>Your Mission This Week:</strong> Complete 2 simple Scratch tutorials to prepare for our workshop</p>
+                <div class="checklist">
+                    <h4>Your Pre-Workshop Checklist:</h4>
+                    <ul>
+                        <li>☐ Complete Scratch Tutorial 1: Space Talk</li>
+                        <li>☐ Complete Scratch Tutorial 2: Catch the Bus</li>
+                        <li>☐ Submit evidence through our forms</li>
+                        <li>☐ Prepare for an amazing workshop experience!</li>
+                    </ul>
+                </div>
+                <a href="https://projects.raspberrypi.org/en/pathways/scratch-intro" target="_blank" class="cta-button">Start Your Scratch Tutorials</a>
+            </div>
+
+            <!-- WORKSHOP VERSION (Hidden by default) -->
+            <div class="phase-content" id="workshop-phase" style="display: none;">
+                <h3>🎯 Workshop Day</h3>
+                <p id="daily-focus"><strong>Today's Focus:</strong> Welcome to the workshop!</p>
+                <div class="today-schedule">
+                    <h4>Today's Schedule:</h4>
+                    <div id="schedule-content">
+                        <p>Check with your facilitators for today's detailed schedule.</p>
+                    </div>
+                </div>
+                <a href="#" class="cta-button">Access Today's Resources</a>
+            </div>
+
+            <!-- POST-WORKSHOP VERSION (Hidden by default) -->
+            <div class="phase-content" id="post-workshop" style="display: none;">
+                <h3>🚀 Implementation Phase</h3>
+                <p><strong>You're Ready!</strong> Time to bring C&R magic to your classroom</p>
+                <div class="implementation-checklist">
+                    <h4>Your Next Steps:</h4>
+                    <ul>
+                        <li>☐ Plan your first C&R lesson</li>
+                        <li>☐ Set up your classroom space</li>
+                        <li>☐ Introduce coding to your learners</li>
+                        <li>☐ Join our ongoing support community</li>
+                    </ul>
+                </div>
+                <a href="#" class="cta-button">Access Teaching Resources</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Purpose -->
+    <section class="course-purpose">
+        <div class="container">
+            <h3>Why This Training Matters</h3>
+            
+            <p>This workshop will guide you in teaching <strong>Coding and Robotics</strong> to your <strong>Grade 4 learners</strong>. We're focusing on building strong foundations that prepare learners for their journey toward Grade 7 Technology.</p>
+            
+            <p>Grade 4 is where we spark curiosity and build confidence. Your learners will discover that they can be creators, not just consumers, of technology. You'll learn to guide them through:</p>
+            
+            <ul>
+                <li><strong>Computational Thinking</strong> - Breaking problems into manageable steps</li>
+                <li><strong>Basic Coding</strong> - Using Scratch to bring ideas to life</li>
+                <li><strong>Simple Robotics</strong> - Understanding how technology responds to instructions</li>
+                <li><strong>Digital Citizenship</strong> - Using technology responsibly and safely</li>
+            </ul>
+            
+            <blockquote>
+                <p>"In Grade 4, we plant the seeds of technological confidence that will grow throughout their educational journey."</p>
+                <cite>- WCED C&R Team</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- Learning Outcomes -->
+    <section class="learning-outcomes">
+        <div class="container">
+            <h3>What You'll Achieve</h3>
+            
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 20px;">By the end of this training, you'll confidently:</p>
+            
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <h4>🧠 Master Computational Thinking</h4>
+                    <p>Guide learners through problem-solving using decomposition, pattern recognition, and algorithmic thinking (C1-C7)</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <h4>💻 Teach Scratch Coding</h4>
+                    <p>Lead engaging coding activities that build from simple animations to interactive stories</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <h4>🤖 Introduce Robotics Concepts</h4>
+                    <p>Explore basic robotics through unplugged activities and simple programming concepts (R1-R7)</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <h4>🌐 Build Digital Citizens</h4>
+                    <p>Integrate digital literacy and responsible technology use across subjects (D1-D7)</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <h4>📚 Create CAPS-Aligned Lessons</h4>
+                    <p>Design and implement lessons that meet curriculum requirements and assessment standards</p>
+                </div>
+                
+                <div class="outcome-card">
+                    <h4>🤝 Join a Support Community</h4>
+                    <p>Connect with fellow Grade 4 teachers for ongoing collaboration and resource sharing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section class="quick-start">
+        <div class="container">
+            <h3>Ready to Begin?</h3>
+            
+            <div class="quick-links">
+                <a href="https://projects.raspberrypi.org/en/pathways/scratch-intro" target="_blank" class="quick-link">
+                    <h4>📚 Scratch Tutorials</h4>
+                    <p>Complete your required pre-workshop tasks</p>
+                </a>
+                
+                <a href="#" class="quick-link">
+                    <h4>📅 Workshop Schedule</h4>
+                    <p>See what's planned for each day</p>
+                </a>
+                
+                <a href="#" class="quick-link">
+                    <h4>🛠️ Teaching Resources</h4>
+                    <p>Access lesson plans and activities</p>
+                </a>
+                
+                <a href="#" class="quick-link">
+                    <h4>🆘 Need Help?</h4>
+                    <p>Get support when you need it</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Western Cape Education Department | Coding & Robotics Training Programme</p>
+        </div>
+    </footer>
+
+    <script>
+        // Phase detection and content switching
+        function updatePhaseContent() {
+            const now = new Date();
+            const preWorkshopEnd = new Date('2025-10-05T23:59:59');
+            const workshopStart = new Date('2025-10-06T00:00:00');
+            const workshopEnd = new Date('2025-10-09T23:59:59');
+            
+            // Hide all phase content
+            document.getElementById('pre-workshop').style.display = 'none';
+            document.getElementById('workshop-phase').style.display = 'none';
+            document.getElementById('post-workshop').style.display = 'none';
+            
+            if (now <= preWorkshopEnd) {
+                // Pre-workshop phase
+                document.getElementById('pre-workshop').style.display = 'block';
+            } else if (now >= workshopStart && now <= workshopEnd) {
+                // Workshop phase
+                document.getElementById('workshop-phase').style.display = 'block';
+                updateWorkshopDay(now);
+            } else {
+                // Post-workshop phase
+                document.getElementById('post-workshop').style.display = 'block';
+            }
+        }
+
+        function updateWorkshopDay(currentDate) {
+            const workshopDays = {
+                '2025-10-06': {
+                    day: 1,
+                    focus: 'C&R Foundation & Scratch Basics',
+                    schedule: `
+                        <p><strong>Morning:</strong> CAPS Overview & Scratch Introduction</p>
+                        <p><strong>Afternoon:</strong> Hands-on Coding Activities</p>
+                    `
+                },
+                '2025-10-07': {
+                    day: 2,
+                    focus: 'Computational Thinking & Advanced Scratch',
+                    schedule: `
+                        <p><strong>Morning:</strong> Problem-solving with Code</p>
+                        <p><strong>Afternoon:</strong> Loops and Decision Structures</p>
+                    `
+                },
+                '2025-10-08': {
+                    day: 3,
+                    focus: 'Robotics & Design Thinking',
+                    schedule: `
+                        <p><strong>Morning:</strong> Introduction to Robotics</p>
+                        <p><strong>Afternoon:</strong> Unplugged Activities & Design Process</p>
+                    `
+                },
+                '2025-10-09': {
+                    day: 4,
+                    focus: 'Digital Concepts & Implementation Planning',
+                    schedule: `
+                        <p><strong>Morning:</strong> Digital Citizenship & Assessment</p>
+                        <p><strong>Afternoon:</strong> Lesson Planning & Next Steps</p>
+                    `
+                }
+            };
+            
+            const dateString = currentDate.toISOString().split('T')[0];
+            const dayInfo = workshopDays[dateString];
+            
+            if (dayInfo) {
+                document.querySelector('#workshop-phase h3').textContent = `🎯 Workshop Day ${dayInfo.day}`;
+                document.getElementById('daily-focus').innerHTML = `<strong>Today's Focus:</strong> ${dayInfo.focus}`;
+                document.getElementById('schedule-content').innerHTML = dayInfo.schedule;
+            }
+        }
+
+        // Run on page load
+        document.addEventListener('DOMContentLoaded', updatePhaseContent);
+    </script>
+</body>
+</html>
