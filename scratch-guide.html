@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Tutorials - Grade 4 C&R Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Copy navigation CSS from above */
+        .main-nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a73e8;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #1a73e8;
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .content-section {
+            background: white;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .tutorial-card {
+            background: #f8f9fa;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            border-left: 4px solid #1a73e8;
+        }
+
+        .tutorial-card h3 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .steps {
+            margin: 20px 0;
+        }
+
+        .step {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .step strong {
+            color: #1a73e8;
+        }
+
+        .cta-button {
+            background: #1a73e8;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #1557b0;
+        }
+
+        .tip-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-left: 4px solid #34a853;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+                margin: 20px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-brand">Grade 4 C&R Training</div>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scratch-guide.html" class="active">Scratch Tutorials</a></li>
+                <li><a href="workshop.html">Workshop Days</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>Pre-Workshop Scratch Tutorials</h1>
+            <p>Complete these 2 tutorials before 5 October 2025</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Why Complete These Tutorials?</h2>
+            <p>These tutorials give you hands-on experience with Scratch before the workshop. You'll learn basic coding concepts that form the foundation for teaching Grade 4 learners.</p>
+
+            <div class="tip-box">
+                <strong>Time Required:</strong> Each tutorial takes approximately 30-45 minutes. Set aside 2 hours total to complete both without rushing.
+            </div>
+
+            <div class="tutorial-card">
+                <h3>Tutorial 1: Space Talk</h3>
+                <p><strong>What you'll learn:</strong> Basic Scratch interface, sprites, backdrops, and simple animation</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <strong>Step 1:</strong> Go to the Raspberry Pi Foundation website
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Create a free account (you'll need this to save your work)
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Follow the tutorial instructions step by step
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Save your completed project
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> Take a screenshot of your finished project
+                    </div>
+                </div>
+
+                <a href="https://projects.raspberrypi.org/en/projects/space-talk" target="_blank" class="cta-button">Start Tutorial 1</a>
+            </div>
+
+            <div class="tutorial-card">
+                <h3>Tutorial 2: Catch the Bus</h3>
+                <p><strong>What you'll learn:</strong> Movement, user input, and basic game mechanics</p>
+                
+                <div class="steps">
+                    <div class="step">
+                        <strong>Step 1:</strong> Make sure you're logged into your Scratch account
+                    </div>
+                    <div class="step">
+                        <strong>Step 2:</strong> Follow the tutorial to create an interactive game
+                    </div>
+                    <div class="step">
+                        <strong>Step 3:</strong> Experiment with changing the code
+                    </div>
+                    <div class="step">
+                        <strong>Step 4:</strong> Save your project
+                    </div>
+                    <div class="step">
+                        <strong>Step 5:</strong> Take a screenshot showing your game working
+                    </div>
+                </div>
+
+                <a href="https://projects.raspberrypi.org/en/projects/catch-the-bus" target="_blank" class="cta-button">Start Tutorial 2</a>
+            </div>
+
+            <div class="tip-box">
+                <h3>Troubleshooting Tips</h3>
+                <ul>
+                    <li><strong>Can't see the tutorials?</strong> Make sure you're using a modern browser (Chrome, Firefox, Edge)</li>
+                    <li><strong>Scratch not loading?</strong> Check your internet connection or try a different device</li>
+                    <li><strong>Stuck on a step?</strong> Contact us through the Help page</li>
+                    <li><strong>Want to learn more?</strong> The Raspberry Pi site has many additional tutorials you can explore</li>
+                </ul>
+            </div>
+
+            <h2>After Completing the Tutorials</h2>
+            <p>Take screenshots of both completed projects and keep them ready. You'll share these during the workshop to show your pre-work completion.</p>
+
+            <a href="index.html" class="cta-button">Back to Home</a>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
