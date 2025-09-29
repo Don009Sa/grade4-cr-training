@@ -11,23 +11,61 @@
             box-sizing: border-box;
         }
 
-        body <nav class="main-nav">
-    <div class="container">
-        <div class="nav-brand">Grade 4 C&R Training</div>
-        <button class="nav-toggle" id="navToggle">☰</button>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="scratch-guide.html">Scratch Tutorials</a></li>
-            <li><a href="workshop.html">Workshop Days</a></li>
-            <li><a href="resources.html">Resources</a></li>
-            <li><a href="help.html">Help</a></li>
-        </ul>
-    </div>
-</nav>{
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f5f5f5;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a73e8;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #1a73e8;
         }
 
         /* Mobile-first responsive design */
@@ -263,6 +301,27 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+
             .hero-section {
                 padding: 40px 0;
             }
@@ -312,6 +371,20 @@
     </style>
 </head>
 <body>
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-brand">Grade 4 C&R Training</div>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="scratch-guide.html">Scratch Tutorials</a></li>
+                <li><a href="workshop.html">Workshop Days</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <header class="hero-section">
         <div class="container">
             <h1>Welcome to Grade 4 Coding & Robotics Training!</h1>
@@ -352,7 +425,7 @@
                         <li>☐ Prepare for an amazing workshop experience!</li>
                     </ul>
                 </div>
-                <a href="https://projects.raspberrypi.org/en/pathways/scratch-intro" target="_blank" class="cta-button">Start Your Scratch Tutorials</a>
+                <a href="scratch-guide.html" class="cta-button">Start Your Scratch Tutorials</a>
             </div>
 
             <!-- WORKSHOP VERSION (6-9 Oct) -->
@@ -365,7 +438,7 @@
                         <p>Check with your facilitators for today's detailed schedule.</p>
                     </div>
                 </div>
-                <a href="#" class="cta-button">Access Today's Resources</a>
+                <a href="workshop.html" class="cta-button">Access Today's Resources</a>
             </div>
 
             <!-- POST-WORKSHOP VERSION (10 Oct onwards) -->
@@ -381,7 +454,7 @@
                         <li>☐ Join our ongoing support community</li>
                     </ul>
                 </div>
-                <a href="#" class="cta-button">Access Teaching Resources</a>
+                <a href="resources.html" class="cta-button">Access Teaching Resources</a>
             </div>
         </div>
     </section>
@@ -453,22 +526,22 @@
             <h3>Ready to Begin?</h3>
             
             <div class="quick-links">
-                <a href="https://projects.raspberrypi.org/en/pathways/scratch-intro" target="_blank" class="quick-link">
+                <a href="scratch-guide.html" class="quick-link">
                     <h4>📚 Scratch Tutorials</h4>
                     <p>Complete your required pre-workshop tasks</p>
                 </a>
                 
-                <a href="#" class="quick-link">
+                <a href="workshop.html" class="quick-link">
                     <h4>📅 Workshop Schedule</h4>
                     <p>See what's planned for each day</p>
                 </a>
                 
-                <a href="#" class="quick-link">
+                <a href="resources.html" class="quick-link">
                     <h4>🛠️ Teaching Resources</h4>
                     <p>Access lesson plans and activities</p>
                 </a>
                 
-                <a href="#" class="quick-link">
+                <a href="help.html" class="quick-link">
                     <h4>🆘 Need Help?</h4>
                     <p>Get support when you need it</p>
                 </a>
@@ -483,6 +556,11 @@
     </footer>
 
     <script>
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
         // Phase detection and content switching
         function updatePhaseContent() {
             const now = new Date();
