@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Programme - Grade 4 C&R Training</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a73e8;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            margin: 0;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #1a73e8;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1a73e8 0%, #34a853 100%);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content-section {
+            background: white;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #1a73e8;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .content-section h3 {
+            color: #34a853;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .info-box {
+            background: #e8f5e8;
+            padding: 20px;
+            border-left: 4px solid #34a853;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: #34a853;
+        }
+
+        /* Tab System */
+        .tabs {
+            display: flex;
+            gap: 10px;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab-button:hover {
+            color: #1a73e8;
+        }
+
+        .tab-button.active {
+            color: #1a73e8;
+            border-bottom-color: #1a73e8;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Schedule Table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+        }
+
+        .schedule-table th {
+            background: #1a73e8;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .schedule-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .schedule-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .time-column {
+            font-weight: 600;
+            color: #1a73e8;
+            width: 120px;
+        }
+
+        /* Competency Tables */
+        .competency-section {
+            margin: 30px 0;
+        }
+
+        .competency-header {
+            background: #8B0000;
+            color: white;
+            padding: 10px 15px;
+            font-weight: 600;
+            border-radius: 5px 5px 0 0;
+        }
+
+        .competency-header.robotics {
+            background: #8B4513;
+        }
+
+        .competency-header.digital {
+            background: #556B2F;
+        }
+
+        .competency-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .competency-table td {
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .competency-table td:first-child {
+            background: #f8f9fa;
+            font-weight: 600;
+            width: 60px;
+            text-align: center;
+        }
+
+        .definition-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .definition-box strong {
+            color: #e65100;
+        }
+
+        /* Framework Images */
+        .framework-section {
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .framework-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .framework-description {
+            text-align: left;
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+
+        /* Mobile Navigation */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 25px;
+                margin: 20px auto;
+            }
+
+            .schedule-table {
+                font-size: 0.9rem;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 10px;
+            }
+
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .tabs {
+                gap: 5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-brand">Grade 4 C&R Training</div>
+            <button class="nav-toggle" id="navToggle">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="scratch-guide.html">Scratch Tutorials</a></li>
+                <li><a href="workshop.html" class="active">Workshop Days</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="help.html">Help</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1>4-Day Workshop Programme</h1>
+            <p>6-9 October 2025 | Grade 4 Coding & Robotics Training</p>
+        </div>
+    </header>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>What is Coding and Robotics?</h2>
+            
+            <p>Coding and robotics combine the principles of programming with the design, construction, and operation of robots. Programming concepts, practices, and perspectives are applied to control robots to perform specific tasks. It includes digital concepts that refer to various ideas, principles and processes that are associated with digital technologies and their use.</p>
+
+            <div class="info-box">
+                <p><strong>Coding</strong> is the process of creating a logical set of instructions that a human or a computing device can understand and execute, which require a deep understanding of computational thinking and problem solving.</p>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Robotics</strong> deals with the design, operation, and use of robots that can be programmed to perform tasks autonomously or semi-autonomously or by direct control. It presents the learners with the opportunity to see their thinking, design, and code in action.</p>
+            </div>
+
+            <div class="info-box">
+                <p><strong>Digital concepts</strong> encompass a range of digital literacy skills and awareness that enables learners to leverage digital technologies to their fullest potential and use digital tools responsibly.</p>
+            </div>
+
+            <h3>The Three Pillars of C&R</h3>
+            <p>The Coding and Robotics curriculum is based on the following pillars, built on foundations of computational thinking, logical and critical thinking, design thinking, and problem solving:</p>
+
+            <div class="framework-description">
+                <ul>
+                    <li><strong>Communication:</strong> Expressing ideas clearly through code and design</li>
+                    <li><strong>Collaboration:</strong> Working together to solve problems</li>
+                    <li><strong>Creativity:</strong> Developing innovative solutions</li>
+                    <li><strong>Perseverance:</strong> Working through challenges and debugging</li>
+                </ul>
+            </div>
+
+            <h3>Design Thinking Process</h3>
+            <p>Throughout the workshop, you'll learn to guide learners through the design thinking cycle:</p>
+            
+            <div class="framework-description">
+                <p><strong>Empathize:</strong> Understanding the problem and user needs</p>
+                <p><strong>Define:</strong> Clearly articulating the challenge</p>
+                <p><strong>Ideate:</strong> Brainstorming creative solutions</p>
+                <p><strong>Prototype:</strong> Building and testing ideas</p>
+                <p><strong>Test:</strong> Evaluating and improving solutions</p>
+                <p><strong>Implementation:</strong> Putting the solution into action</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Grade 4 Competencies</h2>
+
+            <div class="definition-box">
+                <p><strong>A competency is a combination of knowledge, skills, attitudes, and values</strong> which is reflected in behaviour that can be observed, measured, and evaluated.</p>
+                <p>It refers to the ability to perform a specific task successfully and efficiently or in a manner that yields desirable outcomes.</p>
+            </div>
+
+            <div class="competency-section">
+                <div class="competency-header">Coding Competencies</div>
+                <table class="competency-table">
+                    <tr>
+                        <td>C1</td>
+                        <td>Apply computational thinking skills to develop a set of logical instructions to solve a problem</td>
+                    </tr>
+                    <tr>
+                        <td>C2</td>
+                        <td>Present a simple coding solution using symbolic or written statements representing sequences of commands, single repetition, and conditional constructs</td>
+                    </tr>
+                    <tr>
+                        <td>C3</td>
+                        <td>Interpret and execute a given symbolic or written set of commands</td>
+                    </tr>
+                    <tr>
+                        <td>C4</td>
+                        <td>Debug a given symbolic or written set of instructions</td>
+                    </tr>
+                    <tr>
+                        <td>C5</td>
+                        <td>Evaluate a given solution towards potential improvement</td>
+                    </tr>
+                    <tr>
+                        <td>C6</td>
+                        <td>Recognise and interpret patterns in symbolic sets of data or visualisations</td>
+                    </tr>
+                    <tr>
+                        <td>C7</td>
+                        <td>Create or complete a pattern to represent a data set</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="competency-section">
+                <div class="competency-header robotics">Robotics Competencies</div>
+                <table class="competency-table">
+                    <tr>
+                        <td>R1</td>
+                        <td>Explain what a robot is in simple terms</td>
+                    </tr>
+                    <tr>
+                        <td>R2</td>
+                        <td>Identify different types of robots</td>
+                    </tr>
+                    <tr>
+                        <td>R3</td>
+                        <td>Outline the different components of a robot</td>
+                    </tr>
+                    <tr>
+                        <td>R4</td>
+                        <td>Present an understanding of how robots affect the world</td>
+                    </tr>
+                    <tr>
+                        <td>R5</td>
+                        <td>Design a simple artefact based on a set of design specifications</td>
+                    </tr>
+                    <tr>
+                        <td>R6</td>
+                        <td>Mimic the operations of a robot</td>
+                    </tr>
+                    <tr>
+                        <td>R7</td>
+                        <td>Create, test, and execute a set of robotic instructions</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="competency-section">
+                <div class="competency-header digital">Digital Concepts Competencies</div>
+                <table class="competency-table">
+                    <tr>
+                        <td>D1</td>
+                        <td>Outline the concept of technology and purpose of information technology (IT)</td>
+                    </tr>
+                    <tr>
+                        <td>D2</td>
+                        <td>Recognise that he or she is living as a citizen in a digital world</td>
+                    </tr>
+                    <tr>
+                        <td>D3</td>
+                        <td>Demonstrate an understanding of the concept of a computing device</td>
+                    </tr>
+                    <tr>
+                        <td>D4</td>
+                        <td>Identify the common uses of ICT in the real world</td>
+                    </tr>
+                    <tr>
+                        <td>D5</td>
+                        <td>Differentiate between the components of an ICT system</td>
+                    </tr>
+                    <tr>
+                        <td>D6</td>
+                        <td>Explain how the adaptation of technology impacted the world we work and live in</td>
+                    </tr>
+                    <tr>
+                        <td>D7</td>
+                        <td>Present a basic understanding of the concept of input, processing and output</td>
+                    </tr>
+                    <tr>
+                        <td>D8</td>
+                        <td>Interpret a pattern to represent or communicate a message or image</td>
+                    </tr>
+                    <tr>
+                        <td>D9</td>
+                        <td>Create a pattern to represent or communicate a message or image</td>
+                    </tr>
+                    <tr>
+                        <td>D10</td>
+                        <td>Demonstrate a basic proficiency in the application of digital skills</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <h2>Workshop Schedule</h2>
+
+            <div class="tabs">
+                <button class="tab-button active" onclick="openDay(event, 'day1')">Day 1</button>
+                <button class="tab-button" onclick="openDay(event, 'day2')">Day 2</button>
+                <button class="tab-button" onclick="openDay(event, 'day3')">Day 3</button>
+                <button class="tab-button" onclick="openDay(event, 'day4')">Day 4</button>
+            </div>
+
+            <div id="day1" class="tab-content active">
+                <h3>Day 1: Monday, 6 October 2025</h3>
+                <p><strong>Focus:</strong> C&R Foundation & Scratch Introduction</p>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-column">08:00 - 08:30</td>
+                            <td><strong>Welcome & Programme Overview</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">08:30 - 09:30</td>
+                            <td><strong>Introduction & C&R CAPS Overview</strong><br>Overview, approaches, pedagogical methods</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">09:30 - 10:30</td>
+                            <td><strong>C&R Grade 4 Overview</strong><br>Unpacking coding competencies<br>Grade 4: From Foundation Phase towards Grade 5</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">10:30 - 11:00</td>
+                            <td><strong>Tea Break</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">11:00 - 13:00</td>
+                            <td><strong>Introduction to Scratch</strong><br>Interface and basic functionalities (D10)<br>IPO tables and problem statements<br>Unpacking coding content for Grade 4</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:00 - 13:45</td>
+                            <td><strong>Lunch</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:45 - 15:00</td>
+                            <td><strong>Scratch & Coding Demonstrations</strong><br>Worked examples focusing on C1-C3<br>Guided practice: Control structures (Events & Sequence)</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">15:00 - 16:00</td>
+                            <td><strong>Hands-on Activities</strong><br>Scratch & Coding (C1-C3)<br>Simple coding activities with IPO tables</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="day2" class="tab-content">
+                <h3>Day 2: Tuesday, 7 October 2025</h3>
+                <p><strong>Focus:</strong> Computational Thinking & Advanced Scratch</p>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-column">08:00 - 08:30</td>
+                            <td><strong>Computational Thinking Introduction</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">08:30 - 09:30</td>
+                            <td><strong>Coding Basics with Scratch (C1-C5)</strong><br>Control structures: Repetition / Loops<br>Coding activities using IPO and Scratch</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">09:30 - 10:30</td>
+                            <td><strong>Scratch & Coding: Explore Loops (C1-C7)</strong><br>Presentation and feedback session</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">10:30 - 11:00</td>
+                            <td><strong>Tea Break</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">11:00 - 13:00</td>
+                            <td><strong>Coding Basics with Scratch (C1-C7)</strong><br>Control structures: Decisions (IF...)<br>Guided practice: Coding activities using IPO and Scratch</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:00 - 13:45</td>
+                            <td><strong>Lunch</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:45 - 16:00</td>
+                            <td><strong>Draft Term 1 Week 1-4 Coding Lessons</strong><br>CAPS-aligned template development<br>Lesson planning practice</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="day3" class="tab-content">
+                <h3>Day 3: Wednesday, 8 October 2025</h3>
+                <p><strong>Focus:</strong> Robotics & Design Thinking</p>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-column">08:00 - 08:30</td>
+                            <td><strong>Computational Thinking Introduction</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">08:30 - 09:30</td>
+                            <td><strong>Introduction to Grade 4 Robotics</strong><br>Unpacking robotics competencies<br>Design thinking and design process</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">09:30 - 10:30</td>
+                            <td><strong>Unplugged Robotics (R5, R6 & R7)</strong><br>Activity ideas<br>Design and build a robotic artefact (R5)</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">10:30 - 11:00</td>
+                            <td><strong>Tea Break</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">11:00 - 13:00</td>
+                            <td><strong>Presentation of Activities & Feedback</strong><br>R6 & R7 link to Coding<br>Robotics + Coding integration<br>Robotics theory aspects (R1-R4)</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:00 - 13:45</td>
+                            <td><strong>Lunch</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:45 - 16:00</td>
+                            <td><strong>Draft Term 1 Week 1-4 Robotics Lessons</strong><br>CAPS-aligned template development<br>Robotics lesson planning practice</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="day4" class="tab-content">
+                <h3>Day 4: Thursday, 9 October 2025</h3>
+                <p><strong>Focus:</strong> Digital Concepts & Implementation Planning</p>
+                
+                <table class="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Activity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="time-column">08:00 - 08:30</td>
+                            <td><strong>Digital Concepts (D1-D7) Overview</strong><br>Unpacking digital concepts competencies</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">08:30 - 09:30</td>
+                            <td><strong>Activities & Ideas for Digital Concepts</strong><br>Practical activities for D1-D7</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">09:30 - 10:30</td>
+                            <td><strong>Develop Activities for D1-D7</strong><br>Activity presentation and feedback</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">10:30 - 11:00</td>
+                            <td><strong>Tea Break</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">11:00 - 13:00</td>
+                            <td><strong>Coding & Assessment Consolidation</strong><br>SBA tasks and rubrics<br>Project ideas (aligned to DBE structure)</td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:00 - 13:45</td>
+                            <td><strong>Lunch</strong></td>
+                        </tr>
+                        <tr>
+                            <td class="time-column">13:45 - 16:00</td>
+                            <td><strong>Wrap-up & Next Steps</strong><br>Implementation planning<br>Support resources and community of practice<br>Certificate distribution</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('active');
+        });
+
+        // Tab switching function
+        function openDay(evt, dayName) {
+            var i, tabcontent, tabbuttons;
+            
+            // Hide all tab content
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all buttons
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+            
+            // Show current tab and mark button as active
+            document.getElementById(dayName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
